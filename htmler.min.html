@@ -1,0 +1,92 @@
+<!doctypehtml><html lang="en"><meta charset="UTF-8"><meta content="IE=edge"http-equiv="X-UA-Compatible"><meta content="width=device-width,initial-scale=1"name="viewport"><link href="https://newtoallofthis123.github.io/About/assets/icons/icon.ico"rel="shortcut icon"type="image/x-icon"><script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script><script src="https://code.jquery.com/jquery-3.6.1.min.js"crossorigin="anonymous"integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="></script><link href="icon.ico"rel="shortcut icon"type="image/x-icon"><script src="marked.js"></script><script src="jquery.js"></script><title>HTMLer | Convert Markdown to HTML</title><style>.h1{font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;font-size:2.8rem;text-align:center}.p{font-family:serif;font-size:10px}textarea{font-family:'Fira Code','Courier New',Courier,monospace;padding:4px;font-size:16px;width:97%;border:4px;border-color:#000;border-style:solid}p{font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;font-size:16px}h1,h2,h3,h4,h5,h6,li,table{font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif}#content{border:4px;border-color:#000;border-style:solid;padding:12px}table{text-align:center}code{background-color:#1d1c1c;color:#fff;font-family:'Courier New',Courier,monospace;padding:4px}a{font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;color:#0f02f9;text-decoration:none}button{padding:12px;background-color:#fffdfd;border:1px;border-style:solid;border-color:#000;font-size:18px;color:#000;border-radius:12px;margin-bottom:12px;cursor:pointer}button a{font-size:18px;color:#000;display:block}#toggle{padding:12px;background-color:#fffdfd;border:1px;border-style:solid;border-color:#000;font-size:18px;color:#000;border-radius:12px;margin-bottom:12px;cursor:pointer}img{width:20%}#file{display:none}#rich_file{display:none}.file_upload{padding:12px;background-color:#fffdfd;font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;border:1px;border-style:solid;border-color:#000;font-size:18px;color:#000;border-radius:12px;margin-bottom:12px;cursor:pointer}::-moz-selection{color:#ececf2;background:#bf01fe}::selection{color:#ececf2;background:#9a06ea}</style><div style="text-align:center;margin-top:12px"><button id="toggle">Toogle MD Editing and Rich Editing</button></div><div id="md"><h1 class="h1">Write Your Markdown Here 👇</h1><div style="text-align:center"><textarea cols="30"id="text"name="text"rows="10"></textarea></div><h1 class="h1">Done Writing? 📝</h1><div style="text-align:center"><button onclick="save()"><a href="/"id="download">Download The HTML page</a></button> <button onclick="copy()">Copy the HTML Code</button> <button onclick="pop()">Presentation Mode</button> <label class="file_upload"for="file">Upload a Existing File <input accept=".txt, .html, .htm, .js, .py, .rb, .json, .md"id="file"name="file"type="file"></label></div><div id="content"></div><p>Powered by <a href="https://marked.js.org/">marked.js</a></p><script>const save = () => {
+                var a = document.getElementById("download");
+                var content = "<style>h1, h2, h3, h4, h5, h6, p, a{font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;} a{color: rgb(15, 2, 249); text-decoration: none;} img{width: 20%;}</style>" + marked.parse(document.getElementById("text").value)
+                var file = new Blob([content], { type: "html" });
+                a.href = URL.createObjectURL(file);
+                a.download = name;
+            }
+
+            const copy = () => {
+                window.navigator.clipboard.writeText(marked.parse(document.getElementById("text").value))
+                alert("Copied HTML Code to clipboard")
+            }
+
+            const pop = () => {
+                var pop_window = window.open("", "HTMl Content", "toolbar=yes,status=no,menubar=yes,scrollbars=yes,resizable=yes");
+                pop_window.document.body.innerHTML = "<style>h1, h2, h3, h4, h5, h6, p, a{font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;} a{color: rgb(15, 2, 249); text-decoration: none;} img{width: 20%;}</style>" + marked.parse(document.getElementById("text").value)
+                pop_window.document.title = "HTML Content"
+            }
+            $(document).ready(function () {
+                $("#text").keyup(function () {
+                    document.getElementById("content").innerHTML = marked.parse(document.getElementById("text").value)
+                })
+                $("#file").change(function (event) {
+                    const reader = new FileReader();
+                    file = event.target.files[0]
+                    if (!file) {
+                        return;
+                    }
+                    reader.onload = function (e) {
+                        var contents = e.target.result;
+                        displayContents(contents);
+                    };
+                    reader.readAsText(file);
+                })
+                function displayContents(contents) {
+                    var md_content = document.getElementById('text');
+                    md_content.value = contents;
+                    document.getElementById("content").innerHTML = marked.parse(document.getElementById("text").value)
+                }
+            })</script></div><div id="rich"><div style="text-align:center"><button onclick="rich_save()"><a href="/"id="rich_download">Download The HTML page</a></button> <button onclick="rich_copy()">Copy the HTML Code</button> <button onclick="rich_pop()">Presentation Mode</button></div><div style="background-color:#f0f0f0"id="editor"></div><p>Powered by <a href="https://alex-d.github.io/Trumbowyg/">Trumbowyg</a></p><script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.25.1/trumbowyg.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.25.1/plugins/cleanpaste/trumbowyg.cleanpaste.min.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.25.1/plugins/colors/ui/trumbowyg.colors.min.css"rel="stylesheet"><link href="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.25.1/plugins/emoji/ui/trumbowyg.emoji.min.css"rel="stylesheet"><script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.25.1/plugins/colors/trumbowyg.colors.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.25.1/plugins/emoji/trumbowyg.emoji.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.25.1/plugins/fontfamily/trumbowyg.fontfamily.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.25.1/plugins/indent/trumbowyg.indent.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.25.1/plugins/noembed/trumbowyg.noembed.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.25.1/plugins/pasteimage/trumbowyg.pasteimage.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.25.1/plugins/pasteembed/trumbowyg.pasteembed.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.25.1/plugins/resizimg/trumbowyg.resizimg.min.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.25.1/ui/trumbowyg.min.css"rel="stylesheet"><script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.25.2/plugins/fontsize/trumbowyg.fontsize.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.25.2/plugins/cleanpaste/trumbowyg.cleanpaste.min.js"></script><script>$('#editor').trumbowyg({
+                btns: [
+                    ['viewHTML'],
+                    ['undo', 'redo'], // Only supported in Blink browsers
+                    ['formatting'],
+                    ['strong', 'em', 'del'],
+                    ['superscript', 'subscript'],
+                    ['link'],
+                    ['insertImage'],
+                    ['noembed'],
+                    ['justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull'],
+                    ['foreColor', 'backColor'],
+                    ['fontfamily'],
+                    ['fontsize'],
+                    ['indent', 'outdent'],
+                    ['unorderedList', 'orderedList'],
+                    ['horizontalRule'],
+                    ['removeformat'],
+                    ['fullscreen']
+                ],
+                autogrow: true,
+                autogrowOnEnter: true,
+                imageWidthModalEdit: true,
+                minimalLinks: true,
+                defaultLinkTarget: '_blank',
+                plugins: {
+                    fontsize: {
+                        sizeList: [
+                            '18px',
+                            '24px',
+                            '48px'
+                        ]
+                    }
+                }
+            });
+            const rich_save = () => {
+                var a = document.getElementById("rich_download");
+                var content = "<style>h1, h2, h3, h4, h5, h6, p, a{font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;} a{color: rgb(15, 2, 249); text-decoration: none;} img{width: 20%;}</style>" + $('#editor').trumbowyg('html')
+                var file = new Blob([content], { type: "html" });
+                a.href = URL.createObjectURL(file);
+                a.download = name;
+            }
+
+            const rich_copy = () => {
+                window.navigator.clipboard.writeText($('#editor').trumbowyg('html'))
+                alert("Copied HTML Code to clipboard")
+            }
+
+            const rich_pop = () => {
+                var pop_window = window.open("", "HTMl Content", "toolbar=yes,status=no,menubar=yes,scrollbars=yes,resizable=yes");
+                pop_window.document.body.innerHTML = "<style>h1, h2, h3, h4, h5, h6, p, a{font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;} a{color: rgb(15, 2, 249); text-decoration: none;} img{width: 20%;}</style>" + $('#editor').trumbowyg('html')
+                pop_window.document.title = "HTML Content"
+            }</script></div><div style="padding:12px"><h2>About</h2><p>This is a very simple project to just showcase how you don't need bulky markdown editors. You can just use this light weight editor on the web. Now it may not provide all the cool stuff that a fully featured editor may provide, but it gets the job done. With support for drag and drop, auto styling and more. You can even download the markdown as a github theme styled html page. You can even use this offline. Just clone the <a href="https://github.com/newtoallofthis123/htmler">repository</a> and you are good to go. It is barely 120kb. This can be used as an online single file or an offline repository. This supports modern markdown with all the features including mark and more.<h2>Maintainers</h2><p>This project is open source and licensed under the <a href="https://newtoallofthis123.github.io/license">MIT</a> License and is publicly available on <a href="https://github.com/newtoallofthis123/htmler">github</a>. You are free to contribute and make this project better. This project only uses HTMl, CSS and Javascript. So it is prefect for beginners. This project is actively developed and maintained by <a href="https://newtoallofthis123.github.io/About">NoobScience</a>.</div><script>$("#rich").toggle(),$("#toggle").click(function(){$("#md").toggle(),$("#rich").toggle()})</script>
