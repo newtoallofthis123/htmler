@@ -320,6 +320,9 @@
                 href="https://newtoallofthis123.github.io/About">NoobScience</a>.
         </p>
     </div>
+    <footer class="nav">
+        <h1>&copy NoobScience <span id="year"></span></h1>
+    </footer>
 </body>
 <script>
     $("#rich").toggle()
@@ -328,6 +331,7 @@
         $("#rich").toggle()
     }
     )
+    $("#year").text(new Date().getFullYear())
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/codemirror.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/addon/edit/closebrackets.js"></script>
