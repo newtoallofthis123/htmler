@@ -9,6 +9,11 @@
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"
         integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Montserrat:wght@100;400;700&family=Poppins&family=Raleway&family=Archivo+Black&family=Roboto+Condensed:wght@700&display=swap"
+        rel="stylesheet">
     <!-- For Offline use, we use local copies -->
     <link rel="shortcut icon" href="icon.ico" type="image/x-icon">
     <script src="marked.js"></script>
@@ -17,7 +22,7 @@
 </head>
 <style>
     .h1{
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-family: "Roboto Condensed", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         font-size: 2.8rem;
         text-align: center;
     }
@@ -35,11 +40,11 @@
         border-style: solid;
     }
     p{
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-family: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         font-size: 16px;
     }
-    h1, h2, h3, h4, h5, h6, li, table{
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    h1, h2, h3, h4, h5, h6{
+        font-family: "Roboto Condensed", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     }
     #content{
         border: 4px;
@@ -63,10 +68,8 @@
     }
     button{
         padding: 12px;
-        background-color: rgb(255, 253, 253);
-        border: 1px;
-        border-style: solid;
-        border-color: #000;
+        background-color: rgb(181, 226, 47);
+        border: 1px solid rgb(0, 0, 0);
         font-size: 18px;
         color: rgb(0, 0, 0);
         border-radius: 12px;
@@ -81,10 +84,8 @@
 
     #toggle{
         padding: 12px;
-        background-color: rgb(255, 253, 253);
-        border: 1px;
-        border-style: solid;
-        border-color: #000;
+        background-color: rgb(241, 74, 74);
+        border: 1px solid #000;
         font-size: 18px;
         color: rgb(0, 0, 0);
         border-radius: 12px;
@@ -122,17 +123,36 @@
         color: #ECECF2;
         background: #9a06ea;
     }
+    .editor-div{
+        background-color:#f6ef7b;
+        border: 2px solid #000;
+        padding: 12px;
+    }
+    .nav{
+        background-color: #c06bee;
+        padding: 12px;
+        border: 2px solid #000;
+        color: #000;
+        text-align: center;
+    }
+    .CodeMirror * {
+        font-family: 'Fira Code', 'Courier New', Courier, monospace;
+        font-size: 1.2rem;
+    }
 </style>
 <body>
-    <div style="background-color: #000; padding: 1rem; border-radius: 12px;">
-        <h1 style="text-align: center; color: #f0f0f0;">Htmler Markdown Editor</h1>
+    <div class="nav">
+        <h1>Htmler Markdown Editor</h1>
     </div>
     <div style="text-align: center; margin-top: 12px;">
         <button id="toggle">Toogle MD Editing and Rich Editing</button>
     </div>
     <div id="md">
-        <h1 class="h1">Write Your Markdown Here 👇</h1>
-        <div style="text-align: center;"><textarea name="text" id="text" cols="30" rows="10"></textarea></div>
+        <div class="editor-div">
+            <h1 class="h1">Write Your Markdown Here 👇</h1>
+            <textarea name="text" placeholder="Press F11 for distraction free writing" id="md_text" cols="30" rows="10"></textarea>
+            <textarea name="text" style="display: none;" id="text" cols="30" rows="10"></textarea>
+        </div>
         <h1 class="h1">Done Writing? 📝</h1>
         <div style="text-align: center;">
             <button onclick="save()"><a href="/" id="download">Download The HTML page</a></button>
@@ -167,9 +187,9 @@
                 pop_window.document.title = "HTML Content"
             }
             $(document).ready(function () {
-                $("#text").keyup(function () {
+                setInterval(() => {
                     document.getElementById("content").innerHTML = marked.parse(document.getElementById("text").value)
-                })
+                }, 100);
                 $("#file").change(function (event) {
                     const reader = new FileReader();
                     file = event.target.files[0]
@@ -278,7 +298,7 @@
             }
         </script>
     </div>
-    <div style="padding: 12px;">
+    <div style="padding: 1vw;">
         <h2>About</h2>
         <p>
             This is a very simple project to just showcase how you don't need bulky markdown editors. You can just use this
@@ -308,5 +328,51 @@
         $("#rich").toggle()
     }
     )
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/codemirror.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/addon/edit/closebrackets.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/addon/comment/comment.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/codemirror.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/mode/xml/xml.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/addon/edit/matchtags.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/addon/fold/xml-fold.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/addon/edit/closetag.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/addon/display/fullscreen.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/addon/display/fullscreen.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/addon/selection/active-line.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/display/placeholder.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/mode/markdown/markdown.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/theme/monokai.css">
+<!-- <link rel="stylesheet" href="{{ url_for('static',filename='theme/monokai.css') }}"> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/keymap/sublime.js"></script>
+<script>
+     const codemirrorEditor = CodeMirror.fromTextArea(document.getElementById('md_text'), {
+            lineNumbers: true,
+            mode: "markdown",
+            theme: "monokai",
+            keymap: "{{ keybindings }}",
+            autoCloseBrackets: true,
+            matchTags: { bothTags: true },
+            extraKeys: {
+                "Ctrl-J": "toMatchingTag",
+                "Ctrl-/": "toggleComment",
+                "F11": function (cm) {
+                    cm.setOption("fullScreen", !cm.getOption("fullScreen"));
+                },
+                "Esc": function (cm) {
+                    if (cm.getOption("fullScreen")) cm.setOption("fullScreen", false);
+                }
+            },
+            autoCloseTags: true,
+            // styleActiveLine: true,
+            smartIndent: true,
+            cursorBlinkRate: 0,
+            cursorHeight: 1,
+            viewportMargin: Infinity,
+        });
+        codemirrorEditor.setSize("100%", "100%");
+        setInterval(function () {
+            $("#text").val(codemirrorEditor.getValue());
+        }, 100);
 </script>
 </html>
