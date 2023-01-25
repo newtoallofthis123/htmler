@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- For Single File Downloads, we import all the stuff we need from the web. -->
-    <link rel="shortcut icon" href="https://newtoallofthis123.github.io/About/assets/icons/icon.ico" type="image/x-icon">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"
         integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
@@ -14,11 +13,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Montserrat:wght@100;400;700&family=Poppins&family=Raleway&family=Archivo+Black&family=Roboto+Condensed:wght@700&display=swap"
         rel="stylesheet">
-    <!-- For Offline use, we use local copies -->
     <link rel="shortcut icon" href="icon.ico" type="image/x-icon">
-    <script src="marked.js"></script>
-    <script src="jquery.js"></script>
-    <title>HTMLer | Convert Markdown to HTML</title>
+    <title>Htmler | Full Markdown Experience in the browser</title>
 </head>
 <style>
     .h1{
@@ -150,8 +146,7 @@
     <div id="md">
         <div class="editor-div">
             <h1 class="h1">Write Your Markdown Here 👇</h1>
-            <textarea name="text" placeholder="Press F11 for distraction free writing" id="md_text" cols="30" rows="10"></textarea>
-            <textarea name="text" style="display: none;" id="text" cols="30" rows="10"></textarea>
+            <textarea name="text" id="text" cols="30" rows="10"></textarea>
         </div>
         <h1 class="h1">Done Writing? 📝</h1>
         <div style="text-align: center;">
@@ -332,51 +327,5 @@
     }
     )
     $("#year").text(new Date().getFullYear())
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/codemirror.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/addon/edit/closebrackets.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/addon/comment/comment.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/codemirror.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/mode/xml/xml.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/addon/edit/matchtags.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/addon/fold/xml-fold.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/addon/edit/closetag.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/addon/display/fullscreen.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/addon/display/fullscreen.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/addon/selection/active-line.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/display/placeholder.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/mode/markdown/markdown.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/theme/monokai.css">
-<!-- <link rel="stylesheet" href="{{ url_for('static',filename='theme/monokai.css') }}"> -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/keymap/sublime.js"></script>
-<script>
-     const codemirrorEditor = CodeMirror.fromTextArea(document.getElementById('md_text'), {
-            lineNumbers: true,
-            mode: "markdown",
-            theme: "monokai",
-            keymap: "{{ keybindings }}",
-            autoCloseBrackets: true,
-            matchTags: { bothTags: true },
-            extraKeys: {
-                "Ctrl-J": "toMatchingTag",
-                "Ctrl-/": "toggleComment",
-                "F11": function (cm) {
-                    cm.setOption("fullScreen", !cm.getOption("fullScreen"));
-                },
-                "Esc": function (cm) {
-                    if (cm.getOption("fullScreen")) cm.setOption("fullScreen", false);
-                }
-            },
-            autoCloseTags: true,
-            // styleActiveLine: true,
-            smartIndent: true,
-            cursorBlinkRate: 0,
-            cursorHeight: 1,
-            viewportMargin: Infinity,
-        });
-        codemirrorEditor.setSize("100%", "100%");
-        setInterval(function () {
-            $("#text").val(codemirrorEditor.getValue());
-        }, 100);
 </script>
 </html>

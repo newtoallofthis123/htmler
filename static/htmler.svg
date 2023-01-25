@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="157.83067mm"
+   height="151.92021mm"
+   viewBox="0 0 157.83067 151.92021"
+   version="1.1"
+   id="svg5"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#999999"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-30.427945,-68.107061)">
+    <path
+       style="fill:#4d4d4d;fill-opacity:1;stroke:#000000;stroke-width:0.465"
+       id="path234"
+       sodipodi:type="arc"
+       sodipodi:cx="109.34328"
+       sodipodi:cy="144.06717"
+       sodipodi:rx="78.682831"
+       sodipodi:ry="75.727608"
+       sodipodi:start="0"
+       sodipodi:end="6.2804761"
+       sodipodi:open="true"
+       sodipodi:arc-type="arc"
+       d="M 188.02611,144.06717 A 78.682831,75.727608 0 0 1 109.39657,219.79476 78.682831,75.727608 0 0 1 30.660518,144.16975 78.682831,75.727608 0 0 1 109.1834,68.339718 78.682831,75.727608 0 0 1 188.02582,143.86201"
+       inkscape:export-filename="htmler.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       id="path1220"
+       style="fill:#ffff00;fill-opacity:1;stroke:#000000;stroke-width:0.636991"
+       d="m 134.66822,93.175914 a 33.625492,37.757163 0 0 0 -28.95724,18.712246 28.8577,28.062755 0 0 0 -18.460476,-6.46678 28.8577,28.062755 0 0 0 -28.798581,28.10051 28.8577,28.062755 0 0 0 16.986101,25.52164 33.625492,33.930423 0 0 0 -0.424758,5.35543 33.625492,33.930423 0 0 0 33.648554,33.88421 33.625492,33.930423 0 0 0 33.40983,-30.50878 33.625492,37.757163 0 0 0 26.29005,-36.84136 v -0.10272 A 33.625492,37.757163 0 0 0 134.66822,93.175928 Z" />
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:50.8px;font-family:Poppins;-inkscape-font-specification:'Poppins, Bold';fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.465"
+       x="90.503738"
+       y="164.38432"
+       id="text1229"><tspan
+         sodipodi:role="line"
+         id="tspan1227"
+         style="fill:#000000;stroke-width:0.465"
+         x="90.503738"
+         y="164.38432">H</tspan></text>
+  </g>
+</svg>
