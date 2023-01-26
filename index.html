@@ -13,151 +13,29 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Montserrat:wght@100;400;700&family=Poppins&family=Raleway&family=Archivo+Black&family=Roboto+Condensed:wght@700&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="master.css">
     <link rel="shortcut icon" href="icon.ico" type="image/x-icon">
     <title>Htmler | Full Markdown Experience in the browser</title>
 </head>
-<style>
-    .h1{
-        font-family: "Roboto Condensed", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        font-size: 2.8rem;
-        text-align: center;
-    }
-    .p{
-        font-family: serif;
-        font-size: 10px;
-    }
-    textarea{
-        font-family: 'Fira Code', 'Courier New', Courier, monospace;
-        padding: 4px;
-        font-size: 16px;
-        width: 97%;
-        border: 4px;
-        border-color: black;
-        border-style: solid;
-    }
-    p{
-        font-family: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        font-size: 16px;
-    }
-    h1, h2, h3, h4, h5, h6{
-        font-family: "Roboto Condensed", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    }
-    #content{
-        border: 4px;
-        border-color: black;
-        border-style: solid;
-        padding: 12px;
-    }
-    table{
-        text-align: center;
-    }
-    code{
-        background-color: rgb(29, 28, 28);
-        color: #fff;
-        font-family: 'Courier New', Courier, monospace;
-        padding: 4px;
-    }
-    a{
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        color: rgb(15, 2, 249);
-        text-decoration: none;
-    }
-    button{
-        padding: 12px;
-        background-color: rgb(181, 226, 47);
-        border: 1px solid rgb(0, 0, 0);
-        font-size: 18px;
-        color: rgb(0, 0, 0);
-        border-radius: 12px;
-        margin-bottom: 12px;
-        cursor: pointer;
-    }
-    button a{
-        font-size: 18px;
-        color: rgb(0, 0, 0);
-        display: block;
-    }
-
-    #toggle{
-        padding: 12px;
-        background-color: rgb(241, 74, 74);
-        border: 1px solid #000;
-        font-size: 18px;
-        color: rgb(0, 0, 0);
-        border-radius: 12px;
-        margin-bottom: 12px;
-        cursor: pointer;
-    }
-
-    img{
-        width: 20%;
-    }
-    #file{
-        display: none;
-    }
-    #rich_file{
-        display: none;
-    }
-    .file_upload {
-        padding: 12px;
-        background-color: rgb(255, 253, 253);
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        border: 1px;
-        border-style: solid;
-        border-color: #000;
-        font-size: 18px;
-        color: rgb(0, 0, 0);
-        border-radius: 12px;
-        margin-bottom: 12px;
-        cursor: pointer;
-    }
-    ::-moz-selection {
-        color: #ECECF2;
-        background: #bf01fe;
-    }
-    ::selection {
-        color: #ECECF2;
-        background: #9a06ea;
-    }
-    .editor-div{
-        background-color:#f6ef7b;
-        border: 2px solid #000;
-        padding: 12px;
-    }
-    .nav{
-        background-color: #c06bee;
-        padding: 12px;
-        border: 2px solid #000;
-        color: #000;
-        text-align: center;
-    }
-    .CodeMirror * {
-        font-family: 'Fira Code', 'Courier New', Courier, monospace;
-        font-size: 1.2rem;
-    }
-</style>
 <body>
     <div class="nav">
-        <h1>Htmler Markdown Editor</h1>
+        <h1>HTMLER</h1>
+        <p>All the cool kids write here</p>
     </div>
     <div style="text-align: center; margin-top: 12px;">
         <button id="toggle">Toogle MD Editing and Rich Editing</button>
     </div>
     <div id="md">
         <div class="editor-div">
-            <h1 class="h1">Write Your Markdown Here 👇</h1>
-            <textarea name="text" id="text" cols="30" rows="10"></textarea>
+            <h1 class="title">Just Write Pure Markdown Here 👇</h1>
+            <textarea name="text" id="text" cols="30" rows="20"></textarea>
         </div>
-        <h1 class="h1">Done Writing? 📝</h1>
-        <div style="text-align: center;">
+        <div style="text-align: center; padding-top: 2rem;">
             <button onclick="save()"><a href="/" id="download">Download The HTML page</a></button>
             <button onclick="copy()">Copy the HTML Code</button>
             <button onclick="pop()">Presentation Mode</button>
-            <label for="file" class="file_upload">
-                Upload a Existing File
-                <input type="file" name="file" id="file" accept=".txt, .html, .htm, .js, .py, .rb, .json, .md">
-            </label>
         </div>
+        <h1 class="title">Done Writing? 📝</h1>
         <div id="content"></div>
         <p>
             Powered by <a href="https://marked.js.org/">marked.js</a>
@@ -165,7 +43,7 @@
         <script>
             const save = () => {
                 var a = document.getElementById("download");
-                var content = "<style>h1, h2, h3, h4, h5, h6, p, a{font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;} a{color: rgb(15, 2, 249); text-decoration: none;} img{width: 20%;}</style>" + marked.parse(document.getElementById("text").value)
+                var content = "<style>h1, h2, h3, h4, h5, h6, p, a{font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;} a{color: rgb(15, 2, 249); text-decoration: none;} img{width: 80%;}</style>" + marked.parse(document.getElementById("text").value)
                 var file = new Blob([content], { type: "html" });
                 a.href = URL.createObjectURL(file);
                 a.download = name;
@@ -178,7 +56,7 @@
 
             const pop = () => {
                 var pop_window = window.open("", "HTMl Content", "toolbar=yes,status=no,menubar=yes,scrollbars=yes,resizable=yes");
-                pop_window.document.body.innerHTML = "<style>h1, h2, h3, h4, h5, h6, p, a{font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;} a{color: rgb(15, 2, 249); text-decoration: none;} img{width: 20%;}</style>" + marked.parse(document.getElementById("text").value)
+                pop_window.document.body.innerHTML = "<style>h1, h2, h3, h4, h5, h6, p, a{font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;} a{color: rgb(15, 2, 249); text-decoration: none;} img{width: 80%;border-radius:12px;}</style>" + marked.parse(document.getElementById("text").value)
                 pop_window.document.title = "HTML Content"
             }
             $(document).ready(function () {
@@ -206,12 +84,12 @@
         </script>
     </div>
     <div id="rich">
+        <div id="editor" style="background-color: #f0f0f0;"></div>
         <div style="text-align: center;">
             <button onclick="rich_save()"><a href="/" id="rich_download">Download The HTML page</a></button>
             <button onclick="rich_copy()">Copy the HTML Code</button>
             <button onclick="rich_pop()">Presentation Mode</button>
         </div>
-        <div id="editor" style="background-color: #f0f0f0;"></div>
         <p>
             Powered by <a href="https://alex-d.github.io/Trumbowyg/">Trumbowyg</a>
         </p>
@@ -315,7 +193,7 @@
                 href="https://newtoallofthis123.github.io/About">NoobScience</a>.
         </p>
     </div>
-    <footer class="nav">
+    <footer class="footer">
         <h1>&copy NoobScience <span id="year"></span></h1>
     </footer>
 </body>
