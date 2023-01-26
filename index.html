@@ -31,13 +31,15 @@
             <textarea name="text" id="text" cols="30" rows="20"></textarea>
         </div>
         <div style="text-align: center; padding-top: 2rem;">
-            <button onclick="save()"><a href="/" id="download">Download The HTML page</a></button>
+            <button onclick="md_copy()">Copy Markdown Code</button>
             <button onclick="copy()">Copy the HTML Code</button>
             <button onclick="pop()">Presentation Mode</button>
         </div>
         <h1 class="title">Done Writing? 📝</h1>
         <div id="content"></div>
         <div style="text-align: center;">
+            <button onclick="save()"><a href="/" id="download">Download The HTML page</a></button>
+            <button onclick="md_save()"><a href="/" id="md_download">Download The Markdown page</a></button>
             <label for="file" class="file_upload">
                 Upload a Existing File
                 <input type="file" name="file" id="file" accept=".txt, .html, .htm, .js, .py, .rb, .json, .md">
@@ -64,9 +66,22 @@
                 a.download = hashGen() + ".html";
             }
 
+            const md_save = () => {
+                var a = document.getElementById("md_download");
+                var content = document.getElementById("text").value
+                var file = new Blob([content], { type: "md/text" });
+                a.href = URL.createObjectURL(file);
+                a.download = hashGen() + ".md";
+            }
+
             const copy = () => {
                 window.navigator.clipboard.writeText(marked.parse(document.getElementById("text").value))
                 alert("Copied HTML Code to clipboard")
+            }
+
+            const md_copy = () => {
+                window.navigator.clipboard.writeText(document.getElementById("text").value)
+                alert("Copied Markdown Code to clipboard")
             }
 
             const pop = () => {
