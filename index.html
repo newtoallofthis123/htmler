@@ -37,16 +37,31 @@
         </div>
         <h1 class="title">Done Writing? 📝</h1>
         <div id="content"></div>
+        <div style="text-align: center;">
+            <label for="file" class="file_upload">
+                Upload a Existing File
+                <input type="file" name="file" id="file" accept=".txt, .html, .htm, .js, .py, .rb, .json, .md">
+            </label>
+        </div>
         <p>
             Powered by <a href="https://marked.js.org/">marked.js</a>
         </p>
         <script>
+            const hashGen = () => {
+                    const lower = "abcdefghijklmnopqrstuvwxyz";
+                    const upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+                    const digits = "0123456789";
+                    const whole = lower + upper + digits;
+                    const hashString = whole.split('').sort(function () { return 0.5 - Math.random() }).slice(0, 8);
+                    const hash = hashString.join('');
+                    return hash;
+            }
             const save = () => {
                 var a = document.getElementById("download");
-                var content = "<style>h1, h2, h3, h4, h5, h6, p, a{font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;} a{color: rgb(15, 2, 249); text-decoration: none;} img{width: 80%;}</style>" + marked.parse(document.getElementById("text").value)
+                var content = "<style>h1, h2, h3, h4, h5, h6, p, a{font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;} a{color: rgb(15, 2, 249); text-decoration: none;} img{width: 80%;} pre{font-family: 'Fira Code', 'Courier New', Courier, monospace; background - color: #d2d5d3; padding: 12px; border - radius: 12px; border: 2px solid #000; } blockquote{background-color: #d2d5d3;padding: 2px;border-radius: 12px;width: 50%;margin: 0px;border: 2px solid #000;}</style>" + marked.parse(document.getElementById("text").value)
                 var file = new Blob([content], { type: "html" });
                 a.href = URL.createObjectURL(file);
-                a.download = name;
+                a.download = hashGen() + ".html";
             }
 
             const copy = () => {
@@ -56,13 +71,13 @@
 
             const pop = () => {
                 var pop_window = window.open("", "HTMl Content", "toolbar=yes,status=no,menubar=yes,scrollbars=yes,resizable=yes");
-                pop_window.document.body.innerHTML = "<style>h1, h2, h3, h4, h5, h6, p, a{font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;} a{color: rgb(15, 2, 249); text-decoration: none;} img{width: 80%;border-radius:12px;}</style>" + marked.parse(document.getElementById("text").value)
+                pop_window.document.body.innerHTML = "<style>h1, h2, h3, h4, h5, h6, p, a{font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;} a{color: rgb(15, 2, 249); text-decoration: none;} img{width: 80%;border-radius:12px;} pre{font-family: 'Fira Code', 'Courier New', Courier, monospace; background - color: #d2d5d3; padding: 12px; border - radius: 12px; border: 2px solid #000; } blockquote{background-color: #d2d5d3;padding: 2px;border-radius: 12px;width: 50%;margin: 0px;border: 2px solid #000;}</style>" + marked.parse(document.getElementById("text").value)
                 pop_window.document.title = "HTML Content"
             }
             $(document).ready(function () {
-                setInterval(() => {
+                $("#text").keyup(()=>{
                     document.getElementById("content").innerHTML = marked.parse(document.getElementById("text").value)
-                }, 100);
+                });
                 $("#file").change(function (event) {
                     const reader = new FileReader();
                     file = event.target.files[0]

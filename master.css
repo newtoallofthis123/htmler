@@ -16,7 +16,7 @@ body{
 
 .nav p{
     text-align: center;
-    font-size: 1rem;
+    font-size: 1.5rem;
 }
 
 .title{
@@ -81,6 +81,23 @@ button a{
     text-align: center;
     width: 50%;
     border-radius: 12px;
+}
+
+#content blockquote{
+    background-color: #d2d5d3;
+    padding: 2px;
+    border-radius: 12px;
+    width: 50%;
+    margin: 0px;
+    border: 2px solid #000;
+}
+
+#content pre{
+    font-family: 'Fira Code', 'Courier New', Courier, monospace;
+    background-color: #d2d5d3;
+    padding: 12px;
+    border-radius: 12px;
+    border: 2px solid #000;
 }
 
 footer {
