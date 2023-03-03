@@ -1,60 +1,68 @@
-body{
-    margin: 0px;
-    font-family: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+::selection{
+    background-color: #91ff00;
+    color: #1a1919;
 }
+
+body{
+    margin: 0;
+    font-family: "Libre Baskerville", 'Times New Roman', Times, serif;
+    line-height: 2.4rem;
+    background-color: #fcfbfb;
+    color: #101010;
+}
+
 .nav{
-    background-color: #79f0db;
     padding: 12px;
-    font-family: "Archivo Black", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    border: 2px solid #000;
+    margin: 0;
+    border: 2px solid #101010;
 }
 
 .nav h1{
+    font-family: "Libre Baskerville", 'Times New Roman', Times, serif;
+    font-size: 2.6rem;
     text-align: center;
-    font-size: 4rem;
 }
 
 .nav p{
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
 }
 
-.title{
-    font-family: 'Roboto Condensed', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+#md{
+    padding: 5px 1.2rem;
+}
+
+h1{
+    font-family: "Libre Baskerville", 'Times New Roman', Times, serif;
     text-align: center;
-}
-
-.editor-div{
-    text-align: center;
-}
-
-#text{
-    border: 2px solid #000;
-    border-radius: 12px;
-    width: 90%;
-    height: 100%;
-    font-family: 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 1rem;
-    padding: 12px;
+    font-size: 2rem;
 }
 
 button{
-    background-color: #afff89;
-    font-family: 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    border: 2px solid #000;
+    margin: 0 2rem;
     padding: 12px;
+    font-size: 1.2rem;
+    font-family: "Libre Baskerville", 'Times New Roman', Times, serif;
+    /* border: 2px solid #101010; */
+    border: none;
+    text-decoration: underline;
+    text-decoration-color: #101010;
+    text-decoration-thickness: 2px;
     cursor: pointer;
+    background-color: inherit;
 }
 
 button a{
     text-decoration: none;
-    color: #000;
+    color: #101010;
 }
 
 .file_upload {
-    background-color: #afff89;
-    border: 2px solid #000;
-    font-family: 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: inherit;
+    border: none;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-decoration-color: #101010;
     padding: 12px;
     cursor: pointer;
 }
@@ -63,27 +71,48 @@ button a{
     display: none;
 }
 
-#content{
-    font-family: 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 1rem;
+p{
+    font-family: "Libre Baskerville", 'Times New Roman', Times, serif;
+    font-size: 1.2rem;
+}
+
+textarea{
+    resize: vertical;
+    width: 80%;
+    font-family: "Fira Code", 'Courier New', Courier, monospace;
+    font-size: 1.2rem;
+    border: 2px solid #000;
+    padding: 12px;
+    height: 20vh;
+}
+
+textarea::selection{
+    outline: none;
+}
+
+#content {
+    font-size: 1.2rem;
     padding: 12px;
     border: 2px solid #000;
-    /* width: 100%; */
     margin: 2%;
 }
 
-#content a{
+#content h1,h2,h3,h4,h5,h6,a,p{
+    text-align: inherit;
+}
+
+#content a {
     text-decoration: none;
     color: #3b14ff;
 }
 
-#content img{
+#content img {
     text-align: center;
     width: 50%;
     border-radius: 12px;
 }
 
-#content blockquote{
+#content blockquote {
     background-color: #d2d5d3;
     padding: 2px;
     border-radius: 12px;
@@ -92,7 +121,7 @@ button a{
     border: 2px solid #000;
 }
 
-#content pre{
+#content pre {
     font-family: 'Fira Code', 'Courier New', Courier, monospace;
     background-color: #d2d5d3;
     padding: 12px;
@@ -100,7 +129,9 @@ button a{
     border: 2px solid #000;
 }
 
-#content table, td, th{
+#content table,
+td,
+th {
     background-color: #d2d5d3;
     border: 2px solid #000;
     padding: 12px;
@@ -112,8 +143,4 @@ footer {
     font-family: "Archivo Black", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     border: 2px solid #000;
     text-align: center;
-}
-
-p{
-    padding: 2px;
 }

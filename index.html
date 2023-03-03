@@ -8,15 +8,13 @@
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"
         integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="master.css">
+    <link rel="shortcut icon" href="icon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Montserrat:wght@100;400;700&family=Poppins&family=Raleway&family=Archivo+Black&family=Roboto+Condensed:wght@700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Montserrat&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Montserrat&family=Yeseva+One&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="master.css">
-    <link rel="shortcut icon" href="icon.ico" type="image/x-icon">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3530337728124227"
-        crossorigin="anonymous"></script>
     <title>Htmler | Full Markdown Experience in the browser</title>
 </head>
 <body>
@@ -30,7 +28,9 @@
     <div id="md">
         <div class="editor-div">
             <h1 class="title">Just Write Pure Markdown Here 👇</h1>
-            <textarea name="text" id="text" cols="30" rows="20"></textarea>
+            <div style="text-align: center;">
+                <textarea name="text" id="text" cols="30" rows="20"></textarea>
+            </div>
         </div>
         <div style="text-align: center; padding-top: 2rem;">
             <button onclick="md_copy()">Copy Markdown Code</button>
