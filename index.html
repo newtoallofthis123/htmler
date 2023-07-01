@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- For Single File Downloads, we import all the stuff we need from the web. -->
-    <script src="marked.min.js"></script>
-    <script src="jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js"></script>
     <link rel="stylesheet" href="master.css">
     <link rel="shortcut icon" href="icon.ico" type="image/x-icon">
     <title>Htmler | Full Markdown Experience in the browser</title>
@@ -71,12 +70,12 @@
             }
 
             const copy = () => {
-                window.navigator.clipboard.writeText(marked.parse(document.getElementById("text").value))
+                navigator.clipboard.writeText(marked.parse($("#text").val()))
                 alert("Copied HTML Code to clipboard")
             }
 
             const md_copy = () => {
-                window.navigator.clipboard.writeText(document.getElementById("text").value)
+                navigator.clipboard.write($("text").val())
                 alert("Copied Markdown Code to clipboard")
             }
 
@@ -86,14 +85,16 @@
                 pop_window.document.title = "HTML Content"
             }
             const prep = () => {
-                console.log(localStorage.getItem("content"))
+                if(localStorage.getItem("content") == null){
+                    localStorage.setItem("content", "")
+                }
                 document.getElementById("text").value = localStorage.getItem("content").toString()
             }
             window.onload = prep()
             $(document).ready(function () {
                 $("#text").keyup(()=>{
-                    document.getElementById("content").innerHTML = marked.parse(document.getElementById("text").value)
-                    localStorage.setItem("content", document.getElementById("text").value)
+                    document.getElementById("content").innerHTML = marked.parse($("#text").val())
+                    localStorage.setItem("content", $("#text").val())
                 });
                 $("#file").change(function (event) {
                     const reader = new FileReader();
@@ -222,7 +223,7 @@
         </p>
     </div>
     <footer class="footer">
-        <h1><a style="color: #000; text-decoration: none;" href="https://noobscience.rocks">&copy NoobScience <span id="year"></span></a></h1>
+        <h1><a style="color: #fff;text-decoration: none;" href="https://noobscience.rocks">&copy NoobScience <span id="year"></span></a></h1>
     </footer>
 </body>
 <script>
