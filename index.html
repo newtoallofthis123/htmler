@@ -7,10 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js"></script> 
-    <link rel="stylesheet" href="//unpkg.com/@catppuccin/highlightjs/css/catppuccin-frappe.css">
+    <link rel="stylesheet" href="https://unpkg.com/@catppuccin/highlightjs/css/catppuccin-frappe.css">
     <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.8.0/build/highlight.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Fira+Code&family=Inter:wght@400;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="tailwind.css">
-    <link rel="shortcut icon" href="static/icon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="icon.ico" type="image/x-icon">
     <title>Htmler | Full Markdown Experience in the browser</title>
 </head>
 <nav class="flex flex-col justify-center items-center p-2 bg-black text-white">
@@ -31,7 +36,7 @@
     <div class="flex flex-col md:flex-row justify-center">
         <div class="md:w-2/5">
             <textarea style="font-family: 'Fira Code', monospace;" spellcheck="false" autocomplete="off" autofocus
-                name="text" id="text" placeholder="Start Writing Here" class="text-base p-4 w-full focus:outline-none"
+                name="text" id="text" placeholder="Start Writing Here" class="text-base p-4 w-full focus:outline-none textarea-resize"
                 cols="50" rows="10"></textarea>
             <div class="p-2 md:my-5 ">
                 <div class="grid grid-cols-2 gap-2">
@@ -57,7 +62,7 @@
                 </div>
             </div>
         </div>
-        <div class="md:w-3/5 px-5" id="content">
+        <div class="md:w-3/5 px-5 h-auto" id="content">
             <p>
                 Your HTMLER Preview will appear here
             </p>
