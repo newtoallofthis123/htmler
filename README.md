@@ -4,7 +4,7 @@ A simple web based markdown editor.
 
 Yes. That's it! HTMLer is that simple.
 
-![Screenshot](screenshot.png)
+![ScreenShot](screenshot.png)
 
 But it has some cool stuff. It has some cool little functions that make it different from some other ones.
 
