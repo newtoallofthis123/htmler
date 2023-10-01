@@ -12,22 +12,26 @@ const hashGen = () => {
   const hash = hashString.join("");
   return hash;
 };
-const save = () => {
-  var a = document.getElementById("download");
+const dowloadHTML = () => {
   var content =
     "<style>h1, h2, h3, h4, h5, h6, p, a{font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;} a{color: rgb(15, 2, 249); text-decoration: none;} img{width: 80%;} pre{font-family: 'Fira Code', 'Courier New', Courier, monospace; background - color: #d2d5d3; padding: 12px; border - radius: 12px; border: 2px solid #000; } blockquote{background-color: #d2d5d3;padding: 2px;border-radius: 12px;width: 50%;margin: 0px;border: 2px solid #000;}</style>" +
     marked.parse(document.getElementById("text").value);
-  var file = new Blob([content], { type: "html" });
+  var file = new Blob([content], { type: "text/html" });
+  var a = document.getElementById("dowloadHTML");
   a.href = URL.createObjectURL(file);
   a.download = hashGen() + ".html";
+  console.log(hashGen() + ".html saved");
+  showToast("File saved as " + hashGen() + ".html");
 };
 
-const md_save = () => {
-  var a = document.getElementById("md_download");
+const dowloadMD = () => {
+  var a = document.getElementById("dowloadMD");
   var content = document.getElementById("text").value;
   var file = new Blob([content], { type: "md/text" });
   a.href = URL.createObjectURL(file);
   a.download = hashGen() + ".md";
+  console.log(hashGen() + ".html saved");
+  showToast("File saved as " + hashGen() + ".html");
 };
 
 //Code for closing a notification if already open
