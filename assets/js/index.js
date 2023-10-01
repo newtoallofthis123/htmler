@@ -45,7 +45,7 @@ const showToast = (message) => {
     duration: 3000, //3 seconds or 3000ms
     close: true,
     gravity: "top",
-    position: "center",
+    position: "left",
   }).showToast();
 };
 
