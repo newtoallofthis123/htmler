@@ -1,152 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js"></script> 
-    <link rel="stylesheet" href="https://unpkg.com/@catppuccin/highlightjs/css/catppuccin-frappe.css">
-    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.8.0/build/highlight.min.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js"></script>
+    <script src="./assets/js/index.js" defer></script>
     <link
-        href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Fira+Code&family=Inter:wght@400;700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="tailwind.css">
-    <link rel="shortcut icon" href="icon.ico" type="image/x-icon">
+      rel="stylesheet"
+      href="https://unpkg.com/@catppuccin/highlightjs/css/catppuccin-frappe.css"
+    />
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.8.0/build/highlight.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Fira+Code&family=Inter:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/css/tailwind.css" />
+    <link
+      rel="shortcut icon"
+      href="./assets/icon/icon.ico"
+      type="image/x-icon"
+    />
     <title>Htmler | Full Markdown Experience in the browser</title>
-</head>
-<nav class="flex flex-col justify-center items-center p-2 bg-black text-white">
+  </head>
+  <nav
+    class="flex flex-col justify-center items-center p-2 bg-black text-white"
+  >
     <div class="flex flex-row items-center justify-around">
-        <img src="static/htmler.png" class="w-12" alt="">
-        <h1 style="font-family: 'Archivo Black', sans-serif;" class="md:text-5xl text-2xl font-bold p-5">
-            <a href="/">
-                Htmler
-            </a>
-        </h1>
+      <img src="static/htmler.png" class="w-12" alt="" />
+      <h1
+        style="font-family: 'Archivo Black', sans-serif"
+        class="md:text-5xl text-2xl font-bold p-5"
+      >
+        <a href="/"> Htmler </a>
+      </h1>
     </div>
-    <p class="text-lg p-1">
-        The Markdown Experience We All Deserve
-    </p>
-</nav>
+    <p class="text-lg p-1">The Markdown Experience We All Deserve</p>
+  </nav>
 
-<body>
+  <body>
     <div class="flex flex-col md:flex-row justify-center">
-        <div class="md:w-2/5">
-            <textarea style="font-family: 'Fira Code', monospace;" spellcheck="false" autocomplete="off" autofocus
-                name="text" id="text" placeholder="Start Writing Here" class="text-base p-4 w-full focus:outline-none textarea-resize"
-                cols="50" rows="10"></textarea>
-            <div class="p-2 md:my-5 ">
-                <div class="grid grid-cols-2 gap-2">
-                    <button onclick="copy()" class="bg-black text-white text-lg rounded-xl w-full p-2">
-                        Copy HTML
-                    </button>
-                    <button onclick="md_copy()" class="bg-black text-white text-lg rounded-xl w-full p-2">
-                        Copy Markdown
-                    </button>
-                    <button onclick="save()" class="bg-black text-white text-lg rounded-xl w-full p-2">
-                        Download HTML
-                    </button>
-                    <button onclick="md_save()" class="bg-black text-white text-lg rounded-xl w-full p-2">
-                        Download Markdown
-                    </button>
-                </div>
-                <div class="flex flex-col items-center w-full rounded-2xl">
-                    <label for="file" class="file_upload">
-                        Upload File
-                        <input type="file" name="file" class="bg-black w-full rounded-2xl m-2 text-white my-5" id="file"
-                            accept=".txt, .html, .htm, .js, .py, .rb, .json, .md">
-                    </label>
-                </div>
-            </div>
+      <div class="md:w-2/5">
+        <textarea
+          style="font-family: 'Fira Code', monospace"
+          spellcheck="false"
+          autocomplete="off"
+          autofocus
+          name="text"
+          id="text"
+          placeholder="Start Writing Here"
+          class="text-base p-4 w-full focus:outline-none textarea-resize"
+          cols="50"
+          rows="10"
+        ></textarea>
+        <div class="p-2 md:my-5">
+          <div class="grid grid-cols-2 gap-2">
+            <button
+              onclick="copy()"
+              class="bg-black text-white text-lg rounded-xl w-full p-2"
+            >
+              Copy HTML
+            </button>
+            <button
+              onclick="md_copy()"
+              class="bg-black text-white text-lg rounded-xl w-full p-2"
+            >
+              Copy Markdown
+            </button>
+            <button
+              onclick="save()"
+              class="bg-black text-white text-lg rounded-xl w-full p-2"
+            >
+              Download HTML
+            </button>
+            <button
+              onclick="md_save()"
+              class="bg-black text-white text-lg rounded-xl w-full p-2"
+            >
+              Download Markdown
+            </button>
+          </div>
+          <div class="flex flex-col items-center w-full rounded-2xl">
+            <label for="file" class="file_upload">
+              Upload File
+              <input
+                type="file"
+                name="file"
+                class="bg-black w-full rounded-2xl m-2 text-white my-5"
+                id="file"
+                accept=".txt, .html, .htm, .js, .py, .rb, .json, .md"
+              />
+            </label>
+          </div>
         </div>
-        <div class="md:w-3/5 px-5 h-auto" id="content">
-            <p>
-                Your HTMLER Preview will appear here
-            </p>
-        </div>
+      </div>
+      <div class="md:w-3/5 px-5 h-auto" id="content">
+        <p>Your HTMLER Preview will appear here</p>
+      </div>
     </div>
-</body>
-<script>
-    const hashGen = () => {
-        const lower = "abcdefghijklmnopqrstuvwxyz";
-        const upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        const digits = "0123456789";
-        const whole = lower + upper + digits;
-        const hashString = whole.split('').sort(function () { return 0.5 - Math.random() }).slice(0, 8);
-        const hash = hashString.join('');
-        return hash;
-    }
-    const save = () => {
-        var a = document.getElementById("download");
-        var content = "<style>h1, h2, h3, h4, h5, h6, p, a{font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;} a{color: rgb(15, 2, 249); text-decoration: none;} img{width: 80%;} pre{font-family: 'Fira Code', 'Courier New', Courier, monospace; background - color: #d2d5d3; padding: 12px; border - radius: 12px; border: 2px solid #000; } blockquote{background-color: #d2d5d3;padding: 2px;border-radius: 12px;width: 50%;margin: 0px;border: 2px solid #000;}</style>" + marked.parse(document.getElementById("text").value)
-        var file = new Blob([content], { type: "html" });
-        a.href = URL.createObjectURL(file);
-        a.download = hashGen() + ".html";
-    }
+  </body>
 
-    const md_save = () => {
-        var a = document.getElementById("md_download");
-        var content = document.getElementById("text").value
-        var file = new Blob([content], { type: "md/text" });
-        a.href = URL.createObjectURL(file);
-        a.download = hashGen() + ".md";
-    }
-
-    const copy = () => {
-        navigator.clipboard.writeText(marked.parse($("#text").val()))
-        alert("Copied HTML Code to clipboard")
-    }
-
-    const md_copy = () => {
-        navigator.clipboard.write($("text").val())
-        alert("Copied Markdown Code to clipboard")
-    }
-
-    const pop = () => {
-        var pop_window = window.open("", "HTMl Content", "toolbar=yes,status=no,menubar=yes,scrollbars=yes,resizable=yes");
-        pop_window.document.body.innerHTML = "<style>h1, h2, h3, h4, h5, h6, p, a{font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;} a{color: rgb(15, 2, 249); text-decoration: none;} img{width: 80%;border-radius:12px;} pre{font-family: 'Fira Code', 'Courier New', Courier, monospace; background - color: #d2d5d3; padding: 12px; border - radius: 12px; border: 2px solid #000; } blockquote{background-color: #d2d5d3;padding: 2px;border-radius: 12px;width: 50%;margin: 0px;border: 2px solid #000;}</style>" + marked.parse(document.getElementById("text").value)
-        pop_window.document.title = "HTML Content"
-    }
-    function displayContents(contents) {
-            var md_content = document.getElementById('text');
-            md_content.value = contents;
-            document.getElementById("content").innerHTML = marked.parse(document.getElementById("text").value)
-        }
-    const prep = () => {
-        if (localStorage.getItem("content") == null) {
-            localStorage.setItem("content", "")
-        }
-        console.log(localStorage.getItem("content"))
-        document.getElementById("text").value = localStorage.getItem("content").toString()
-        displayContents(localStorage.getItem("content").toString())
-    }
-
-    window.onload = prep()
-    $(document).ready(function () {
-        $("#text").keyup(() => {
-            document.getElementById("content").innerHTML = marked.parse($("#text").val())
-            hljs.highlightAll();
-            localStorage.setItem("content", $("#text").val())
-        });
-        $("#file").change(function (event) {
-            const reader = new FileReader();
-            file = event.target.files[0]
-            if (!file) {
-                return;
-            }
-            reader.onload = function (e) {
-                var contents = e.target.result;
-                displayContents(contents);
-            };
-            reader.readAsText(file);
-        })
-    })
-</script>
-<footer>
+  <footer>
     <h1 class="text-center">
-        Made with ❤️ by <a class="text-blue-600" href="https://noobscience.rocks">Ishan Joshi</a> | Know more about <a class="text-blue-600" href="https://noobscience.rocks/htmler">HTMLER</a>
+      Made with ❤️ by
+      <a class="text-blue-600" href="https://noobscience.rocks">Ishan Joshi</a>
+      | Know more about
+      <a class="text-blue-600" href="https://noobscience.rocks/htmler"
+        >HTMLER</a
+      >
     </h1>
-</footer>
+  </footer>
+</html>
