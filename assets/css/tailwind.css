@@ -542,6 +542,11 @@ video {
   margin: 0.5rem;
 }
 
+.mx-3 {
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
+}
+
 .my-5 {
   margin-top: 1.25rem;
   margin-bottom: 1.25rem;
@@ -668,6 +673,16 @@ video {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.duration-300 {
+  transition-duration: 300ms;
 }
 
 ::-moz-selection {
@@ -804,13 +819,19 @@ th {
   display: none;
 }
 
-.hover\:bg-\[\#58b7a6\]:hover {
+.hover\:bg-\[\#50d7bf\]:hover {
   --tw-bg-opacity: 1;
-  background-color: rgb(88 183 166 / var(--tw-bg-opacity));
+  background-color: rgb(80 215 191 / var(--tw-bg-opacity));
 }
 
-.hover\:font-bold:hover {
-  font-weight: 700;
+.hover\:text-lg:hover {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+.hover\:text-\[\#50d7bf\]:hover {
+  --tw-text-opacity: 1;
+  color: rgb(80 215 191 / var(--tw-text-opacity));
 }
 
 .hover\:text-black:hover {
@@ -818,15 +839,35 @@ th {
   color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
-.hover\:shadow-md:hover {
-  --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
 .focus\:outline-none:focus {
   outline: 2px solid transparent;
   outline-offset: 2px;
+}
+
+.focus\:ring-2:focus {
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+}
+
+.focus\:ring-\[\#50d7bf\]:focus {
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(80 215 191 / var(--tw-ring-opacity));
+}
+
+.active\:bg-\[\#50d7bf\]:active {
+  --tw-bg-opacity: 1;
+  background-color: rgb(80 215 191 / var(--tw-bg-opacity));
+}
+
+.active\:text-lg:active {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+.active\:text-black:active {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
 @media (min-width: 768px) {
