@@ -30,14 +30,35 @@ const md_save = () => {
   a.download = hashGen() + ".md";
 };
 
+//Code for closing a notification if already open
+const closeToast = () => {
+  const toastElements = document.querySelectorAll(".toastify");
+  toastElements.forEach((element) => {
+    element.parentNode.removeChild(element);
+  });
+};
+
+//CODE for showing the notification
+const showToast = (message) => {
+  Toastify({
+    text: message,
+    duration: 3000,
+    close: true,
+    gravity: "top",
+    position: "center",
+  }).showToast();
+};
+
 const copy = () => {
   navigator.clipboard.writeText(marked.parse($("#text").val()));
-  alert("Copied HTML Code to clipboard");
+  closeToast();
+  showToast("Copied HTML Code to clipboard");
 };
 
 const md_copy = () => {
   navigator.clipboard.write($("text").val());
-  alert("Copied Markdown Code to clipboard");
+  closeToast();
+  showToast("Copied Markdown Code to clipboard");
 };
 
 const pop = () => {
